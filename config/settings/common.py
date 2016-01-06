@@ -17,6 +17,7 @@ APPS_DIR = ROOT_DIR.path('openstage')
 
 env = environ.Env()
 
+
 # APP CONFIGURATION
 # ------------------------------------------------------------------------------
 DJANGO_APPS = (
@@ -29,7 +30,7 @@ DJANGO_APPS = (
     'django.contrib.staticfiles',
 
     # Useful template tags:
-    # 'django.contrib.humanize',
+    'django.contrib.humanize',
 
     # Admin
     'django.contrib.admin',
@@ -224,8 +225,8 @@ AUTOSLUG_SLUGIFY_FUNCTION = 'slugify.slugify'
 ########## CELERY
 INSTALLED_APPS += ('openstage.taskapp.celery.CeleryConfig',)
 # if you are not using the django database broker (e.g. rabbitmq, redis, memcached), you can remove the next line.
-INSTALLED_APPS += ('kombu.transport.django',)
-BROKER_URL = env("CELERY_BROKER_URL", default='django://')
+#INSTALLED_APPS += ('kombu.transport.django',)
+#BROKER_URL = env("CELERY_BROKER_URL", default='django://')
 ########## END CELERY
 
 

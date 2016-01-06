@@ -42,7 +42,7 @@ CACHES = {
 MIDDLEWARE_CLASSES += ('debug_toolbar.middleware.DebugToolbarMiddleware',)
 INSTALLED_APPS += ('debug_toolbar', )
 
-INTERNAL_IPS = ('127.0.0.1', '10.0.2.2',)
+INTERNAL_IPS = ('127.0.0.1', '10.0.0.2',)
 
 DEBUG_TOOLBAR_CONFIG = {
     'DISABLE_PANELS': [
@@ -59,9 +59,30 @@ INSTALLED_APPS += ('django_extensions', )
 # ------------------------------------------------------------------------------
 TEST_RUNNER = 'django.test.runner.DiscoverRunner'
 
+DATABASES = {
+    'default': {
+        'ENGINE': 'django.db.backends.postgresql_psycopg2',
+        'NAME': 'openstage',
+        'USER': 'postgres',
+        'PASSWORD': '1234',
+        'HOST': '',
+        'ATOMIC_REQUESTS': True,
+    }
+}
+
 ########## CELERY
 # In development, all tasks will be executed locally by blocking until the task returns
 CELERY_ALWAYS_EAGER = True
 ########## END CELERY
 
 # Your local stuff: Below this line define 3rd party library settings
+BROKER_HOST = "127.0.0.1"
+BROKER_BACKEND = "redis"
+BROKER_USER = ""
+BROKER_PASSWORD = ""
+BROKER_VHOST = "0"
+
+REDIS_PORT = 6379
+REDIS_HOST = "127.0.0.1"
+REDIS_DB = 0
+REDIS_CONNECT_RETRY = True

@@ -48,7 +48,6 @@ function install_or_upgrade()
         echo -e "Please do:\n" 2>&1
         echo "sudo ./${0##*/} $PARAN" 2>&1
         echo -e "\n" 2>&1
-
         exit 1
     else
 
