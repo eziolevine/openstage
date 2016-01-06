@@ -16,6 +16,10 @@ class User(AbstractUser):
     name = models.CharField(_("Name of User"), blank=True, max_length=255)
 
     def __str__(self):
+        if self.first_name and self.last_name:
+            return '%s %s' % (self.first_name, self.last_name)
+        if self.first_name:
+            return self.first_name          
         return self.username
 
     def get_absolute_url(self):

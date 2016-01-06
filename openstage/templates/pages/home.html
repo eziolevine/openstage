@@ -1,1 +1,25 @@
 {% extends "base.html" %}
+{% load embed_video_tags %}
+{% load i18n %}
+
+
+
+{% block content %}
+	{% for interview in interviewes %}
+		<div class='panel panel-info'>
+			<div class='panel-heading'><h2 class="text-center"><small>{{interview.title }}</small></h2></div>
+			<div class='panel-body'>
+			<div class="embad-video center-small">{% video interview.video as my_video %}
+			  
+			  
+			  {% video my_video "small" %}
+			  
+			{% endvideo %}
+			</div>
+			<div class="interview-content center-small">
+			<p><a href="{{interview.get_absolute_url}}" class='btn btn-default'>{% trans 'Full article' %} </a></p>
+			</div>
+			</div>
+	{% endfor %}
+		
+{% endblock content %}

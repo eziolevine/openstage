@@ -28,23 +28,28 @@ DJANGO_APPS = (
     'django.contrib.sites',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-
+    'django.contrib.flatpages',
     # Useful template tags:
     'django.contrib.humanize',
 
     # Admin
+    'grappelli',
     'django.contrib.admin',
 )
 THIRD_PARTY_APPS = (
+    
     'crispy_forms',  # Form layouts
     'allauth',  # registration
     'allauth.account',  # registration
     'allauth.socialaccount',  # registration
+    'embed_video',  # youtube embed
+    'publisher',  # publish utils
 )
 
 # Apps specific for this project go here.
 LOCAL_APPS = (
     'openstage.users',  # custom users app
+    'openstage.interviews'  # main app
     # Your stuff: custom apps go here
 )
 
@@ -61,6 +66,7 @@ MIDDLEWARE_CLASSES = (
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    'publisher.middleware.PublisherMiddleware',
 )
 
 # MIGRATIONS CONFIGURATION
@@ -234,3 +240,6 @@ INSTALLED_APPS += ('openstage.taskapp.celery.CeleryConfig',)
 ADMIN_URL = r'^admin/'
 
 # Your common stuff: Below this line define 3rd party library settings
+
+#GRAPPELLI
+GRAPPELLI_ADMIN_TITLE = 'OpenStage Admin'

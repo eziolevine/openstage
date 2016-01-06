@@ -1,0 +1,26 @@
+{% extends "base.html" %}
+
+
+{% load embed_video_tags %}
+{% load i18n %}
+
+{% block content %}
+		<div class='panel panel-info'>
+			<div class='panel-heading'><h2 class="text-center">{{interview.title }}</h2></div>
+			<div class='panel-body'>
+			<div class="embad-video center-big">{% video interview.video as my_video %}
+			  
+			  
+			  {% video my_video "large" %}
+			  
+			{% endvideo %}
+			</div>
+			<div class='interview-content center-big'>
+			<p>{% trans 'Interviewer' %}: {{interview.interviewer}}</p>
+			<p>{% trans 'Interviewee' %}: {{interview.interviewee}}</p>
+			<p>{% trans 'Published' %}: {{interview.publisher_published_at}}</p>
+			<p>{% trans 'Description' %}: {{interview.body}}</p>
+			</div>
+			</div>
+		
+{% endblock content %}
